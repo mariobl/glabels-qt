@@ -86,6 +86,27 @@ namespace glabels
 
 
 		///
+		/// Set initial value of multiple variables
+		///
+		void Variables::setVariables( const QMap<QString,QString>& definitions )
+		{
+			for ( auto& name : definitions.keys() )
+			{
+				if ( hasVariable( name ) )
+				{
+					(*this)[name].setInitialValue( definitions[name] );
+				}
+				else
+				{
+					addVariable( Variable( Variable::Type::STRING,
+					                       name,
+					                       definitions[name] ) );
+				}
+			}
+		}
+		
+
+		///
 		/// Reset variables to their initial values
 		///
 		void Variables::resetVariables()
@@ -93,6 +114,21 @@ namespace glabels
 			for ( auto& v : *this )
 			{
 				v.resetValue();
+			}
+		}
+
+		
+		///
+		/// Reset "on copy" variables to their initial values
+		///
+		void Variables::resetOnCopyVariables()
+		{
+			for ( auto& v : *this )
+			{
+				if ( v.increment() == Variable::Increment::PER_COPY )
+				{
+					v.resetValue();
+				}
 			}
 		}
 
