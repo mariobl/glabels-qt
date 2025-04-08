@@ -1,7 +1,7 @@
 gLabels Author
 ==============
 
-[Jim Evins <evins@snaught.com>](https://github.com/jimevins)
+[Jaye Evins <evins@snaught.com>](https://github.com/j-evins)
 
 
 Acknowledgments

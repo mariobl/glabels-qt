@@ -1,6 +1,6 @@
 /*  QtRenderer.h
  *
- *  Copyright (C) 2017  Jim Evins <evins@snaught.com>
+ *  Copyright (C) 2017  Jaye Evins <evins@snaught.com>
  *
  *  This file is part of glbarcode++.
  *

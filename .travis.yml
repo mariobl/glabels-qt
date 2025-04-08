@@ -48,7 +48,7 @@ matrix:
 
     after_success:
       # Download AppImage QT deployment tool (local snapshot -- original at github/probono)
-      - wget -c "https://github.com/jimevins/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage" 
+      - wget -c "https://github.com/j-evins/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage" 
       - chmod a+x linuxdeployqt*.AppImage
       #
       # Create AppImage
@@ -60,7 +60,7 @@ matrix:
       - mv ./gLabels*.AppImage glabels-${VERSION}-x86_64.AppImage
 
     before_deploy:
-      - git config --local user.name "Jim Evins (Travis CI)"
+      - git config --local user.name "Jaye Evins (Travis CI)"
       - git config --local user.email evins@snaught.com
       - git tag -f -a glabels-${VERSION} -m "glabels-${VERSION} CI"
 

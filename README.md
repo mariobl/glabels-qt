@@ -2,8 +2,8 @@
 
 ![Cover Image](docs/images/cover-image.png)
 
-[![Travis Build Status](https://travis-ci.org/jimevins/glabels-qt.svg?branch=master)](https://travis-ci.org/jimevins/glabels-qt)
-[![Appveyor Build Status](https://ci.appveyor.com/api/projects/status/github/jimevins/glabels-qt?branch=master&svg=true)](https://ci.appveyor.com/project/jimevins/glabels-qt)
+[![Travis Build Status](https://travis-ci.org/j-evins/glabels-qt.svg?branch=master)](https://travis-ci.org/j-evins/glabels-qt)
+[![Appveyor Build Status](https://ci.appveyor.com/api/projects/status/github/j-evins/glabels-qt?branch=master&svg=true)](https://ci.appveyor.com/project/j-evins/glabels-qt)
 
 *******************************************************************************
 
@@ -35,7 +35,7 @@ bleeding-edge development (unstable) code.  Please, DO NOT use it in a productio
 expect compatibility or consistency of features between snapshots.
 
 Pre-release Linux [AppImage](http:appimage.org) and Windows installer binaries are available in
-**[Releases](https://github.com/jimevins/glabels-qt/releases)**.
+**[Releases](https://github.com/j-evins/glabels-qt/releases)**.
 
 Some third-party packages are also available:
 

@@ -1,6 +1,6 @@
 /*  Merge/None.cpp
  *
- *  Copyright (C) 2015-2016  Jim Evins <evins@snaught.com>
+ *  Copyright (C) 2015-2016  Jaye Evins <evins@snaught.com>
  *
  *  This file is part of gLabels-qt.
  *
