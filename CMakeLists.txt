@@ -15,9 +15,10 @@ set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/"
 # Version Information
 #=======================================
 set (WEBSITE  "glabels.org")
-set (BUG_WEBSITE  "https://github.com/jimevins/glabels-qt/issues")
+set (BUG_WEBSITE  "https://github.com/j-evins/glabels-qt/issues")
 
 execute_process(
+  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
   COMMAND git symbolic-ref --short HEAD
   RESULT_VARIABLE BRANCH_VALID
   OUTPUT_VARIABLE BRANCH
@@ -28,6 +29,7 @@ if (NOT ${BRANCH_VALID} STREQUAL "0")
 endif ()
   
 execute_process(
+  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
   COMMAND git rev-list --count ${BRANCH}
   RESULT_VARIABLE COMMIT_COUNT_VALID
   OUTPUT_VARIABLE COMMIT_COUNT
@@ -38,6 +40,7 @@ if (NOT ${COMMIT_COUNT_VALID} STREQUAL "0")
 endif ()
   
 execute_process(
+  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
   COMMAND git log -1 --format=%h
   RESULT_VARIABLE COMMIT_HASH_VALID
   OUTPUT_VARIABLE COMMIT_HASH
@@ -48,6 +51,7 @@ if (NOT ${COMMIT_HASH_VALID} STREQUAL "0")
 endif ()
   
 execute_process(
+  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
   COMMAND git log -1 --format=%cd --date=short
   RESULT_VARIABLE COMMIT_DATE_VALID
   OUTPUT_VARIABLE COMMIT_DATE
@@ -107,11 +111,11 @@ if (MINGW)
    set (CMAKE_PREFIX_PATH ${MINGW_BASE_DIR} )
 endif ()
 
-find_package (Qt5Core 5.4 REQUIRED)
-find_package (Qt5Widgets 5.4 REQUIRED)
-find_package (Qt5PrintSupport 5.4 REQUIRED)
-find_package (Qt5Xml 5.4 REQUIRED)
-find_package (Qt5Svg 5.4 REQUIRED)
+find_package (Qt5Core 5.6 REQUIRED)
+find_package (Qt5Widgets 5.6 REQUIRED)
+find_package (Qt5PrintSupport 5.6 REQUIRED)
+find_package (Qt5Xml 5.6 REQUIRED)
+find_package (Qt5Svg 5.6 REQUIRED)
 find_package (Qt5LinguistTools)
 
 if (WIN32)
@@ -128,7 +132,7 @@ find_package (GnuBarcode 0.98 QUIET)
 find_package (LibQrencode 3.4 QUIET)
 find_package (LibZint 2.6 EXACT QUIET)
 # Unit testing support
-find_package (Qt5Test 5.4 QUIET)
+find_package (Qt5Test 5.6 QUIET)
 
 
 #=======================================
