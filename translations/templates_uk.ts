@@ -1,9 +1,9 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="uk" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="uk">
 <context>
     <name>XmlStrings</name>
     <message>
         <source>Address labels</source>
-        <translation>Наліпки з адресами</translation>
+        <translation>zНаліпки з адресами</translation>
     </message>
     <message>
         <source>Any card</source>
@@ -423,11 +423,11 @@
     </message>
     <message>
         <source>Postage stamp labels</source>
-        <translation>Наліпки — поштові штампи</translation>
+        <translation>Наліпки із поштовими штампами</translation>
     </message>
     <message>
         <source>CD/DVD spine labels</source>
-        <translation>Бічні наліпки CD/DVD</translation>
+        <translation>Етикетки-корінці CD/DVD</translation>
     </message>
 </context>
 </TS>
