@@ -14,6 +14,10 @@ set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/"
 #=======================================
 # Version Information
 #=======================================
+set (ORGANIZATION_NAME "glabels.org")
+set (ORGANIZATION_DOMAIN "glabels.org")
+set (APPLICATION_NAME "glabels-qt")
+
 set (WEBSITE  "glabels.org")
 set (BUG_WEBSITE  "https://github.com/j-evins/glabels-qt/issues")
 
@@ -41,7 +45,7 @@ endif ()
   
 execute_process(
   WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-  COMMAND git log -1 --format=%h
+  COMMAND git show-ref --head --hash --abbrev head
   RESULT_VARIABLE COMMIT_HASH_VALID
   OUTPUT_VARIABLE COMMIT_HASH
   OUTPUT_STRIP_TRAILING_WHITESPACE
@@ -52,7 +56,7 @@ endif ()
   
 execute_process(
   WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-  COMMAND git log -1 --format=%cd --date=short
+  COMMAND git rev-list -1 --no-commit-header --format=%cs HEAD
   RESULT_VARIABLE COMMIT_DATE_VALID
   OUTPUT_VARIABLE COMMIT_DATE
   OUTPUT_STRIP_TRAILING_WHITESPACE
@@ -125,7 +129,9 @@ endif ()
 find_package (ZLIB 1.2 QUIET)
 find_package (GnuBarcode 0.98 QUIET)
 find_package (LibQrencode 3.4 QUIET)
-find_package (LibZint 2.6 EXACT QUIET)
+find_package (LibZint 2.15 QUIET)
+# Unit testing support
+find_package (Qt5Test 5.6 QUIET)
 
 
 #=======================================

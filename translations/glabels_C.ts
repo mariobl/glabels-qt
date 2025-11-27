@@ -168,17 +168,6 @@
     </message>
 </context>
 <context>
-    <name>Db</name>
-    <message>
-        <source>Other</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Roll</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>EditVariableDialog</name>
     <message>
         <source>Dialog</source>
@@ -252,10 +241,12 @@
     <name>Frame</name>
     <message>
         <source>%1 x %2 (%3 per sheet)</source>
+        <extracomment>%1 = number of labels across a page, %2 = number of labels down a page, %3 = total number of labels on a page (sheet).</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 per sheet</source>
+        <extracomment>%1 is the total number of labels on a page (sheet).</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -528,6 +519,34 @@
         <source>Picas</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Configure grid behavior.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Origin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spacing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Top left corner</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PrintView</name>
@@ -600,11 +619,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Print...</source>
+        <source>Start groups at position:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Start groups at position:</source>
+        <source>Destination</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use system print dialog...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -643,10 +670,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select another product for this gLabels project.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Change product</source>
         <translation type="unfinished"></translation>
     </message>
@@ -676,6 +699,10 @@
     </message>
     <message>
         <source>Similar Products</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select another product for this gLabels project.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -865,7 +892,7 @@
 <context>
     <name>TemplateDesignerContinuousPage</name>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click &amp;quot;Cancel&amp;quot; to quit, or click &amp;quot;Back&amp;quot; to begin with a different product.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>Click &quot;Cancel&quot; to quit, or click &quot;Back&quot; to begin with a different product.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -891,10 +918,6 @@
 <context>
     <name>TemplateDesignerIntroPage</name>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This dialog will help you create a custom product template. Let&apos;s get started:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Copy/Edit Product</source>
         <translation type="unfinished"></translation>
     </message>
@@ -908,6 +931,10 @@
     </message>
     <message>
         <source>Create a new product template from scratch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This dialog will help you create a custom product template. Let&apos;s get started:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1018,7 +1045,7 @@
 <context>
     <name>TemplateDesignerPathPage</name>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click &amp;quot;Cancel&amp;quot; to quit, or click &amp;quot;Back&amp;quot; to begin with a different product.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>Click &quot;Cancel&quot; to quit, or click &quot;Back&quot; to begin with a different product.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1183,15 +1210,7 @@
 <context>
     <name>VariablesView</name>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Add variable&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Edit selected variable&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1199,11 +1218,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Delete selected variable&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Delete</source>
+        <source>Add variable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit selected variable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete selected variable</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1326,6 +1353,10 @@
     </message>
     <message>
         <source>Resize</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drop</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1873,10 +1904,12 @@
     </message>
     <message>
         <source>Undo %1</source>
+        <extracomment>%1 is the action name/description (e.g. move, delete, ...) to undo.</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Redo %1</source>
+        <extracomment>%1 is the action name/description (e.g. move, delete, ...) to redo.</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2088,6 +2121,22 @@
         <source>(Will print a total of %1 items on 1 page.)</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Print to file (PDF)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PDF files (*.pdf);;All files (*)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 already exists.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do you want to overwrite it?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>glabels::PropertiesView</name>
@@ -2168,6 +2217,7 @@
     </message>
     <message>
         <source>User product template (%1 %2) already exists.</source>
+        <extracomment>%1 = brand name of product (e.g. Avery), %2 = part number of product (e.g. 5026).</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2524,10 +2574,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Aztec Rune</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Code One</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2537,10 +2583,6 @@
     </message>
     <message>
         <source>Code 16K</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Code 2 of 5 Matrix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2596,22 +2638,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>GS1 DataBar-14</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>GS1 DataBar-14 Stacked</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>GS1 DataBar-14 Stacked Omni.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>GS1 DataBar Extended Stacked</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>HIBC Code 128</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2629,10 +2655,6 @@
     </message>
     <message>
         <source>HIBC PDF417</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>HIBC Micro PDF417</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2660,10 +2682,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Micro PDF417</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Micro QR Code</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2672,23 +2690,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>NVE-18</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>PDF417</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>PDF417 Truncated</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>PLANET</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>PostNet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2700,15 +2706,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Pharmazentral Nummer (PZN)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>QR Code</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Royal Mail 4-State</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2720,11 +2718,127 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>USPS One Code</source>
+        <source>UK Plessey</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>UK Plessey</source>
+        <source>Aztec Runes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>CEPNet (Brazilian Post)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Codablock-F</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Code 2 of 5 Standard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GS1 DataBar Stacked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GS1 DataBar Stacked Omni.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GS1 DataBar Expanded Stacked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>HIBC MicroPDF417</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MicroPDF417</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>NVE-18 (SSCC-18)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PDF417 Compact</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pharmazentralnummer (PZN)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Channel Code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Code 2 of 5 Industrial</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DotCode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>EAN-14</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GS1 DataBar Omnidirectional</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Han Xin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flattermarken</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DPD Code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>POSTNET</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Royal Mail 4-State Mailmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>UPU S10</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FIM (Facing ID Mark)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>rMQR (Rectangular Micro QR)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Royal Mail 4-State Customer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>VIN (Vehicle ID Number)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>HIBC Codablock-F</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Royal Mail 2-D Mailmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>BC412 (SEMI TI-95)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -31,6 +31,7 @@
 
 #include <QDir>
 #include <QList>
+#include <QMimeData>
 #include <QObject>
 #include <QPainter>
 
@@ -59,7 +60,7 @@ namespace glabels
 			/////////////////////////////////
 		public:
 			Model();
-			Model( merge::Merge* merge, Variables* variables );
+			Model( merge::Merge* merge );
 			~Model();
 
 	
@@ -99,9 +100,9 @@ namespace glabels
 			const QString& fileName() const;
 			void setFileName( const QString &fileName );
 
-			const Template* tmplate() const;
-			const Frame* frame() const;
-			void setTmplate( const Template* tmplate );
+			const Template& tmplate() const;
+			const Frame* frame( const QString& id = "0" ) const;
+			void setTmplate( const Template& tmplate );
 
 			bool rotate() const;
 			void setRotate( bool rotate );
@@ -109,11 +110,12 @@ namespace glabels
 			Distance w() const;
 			Distance h() const;
 
-			void setH( const Distance& h );
+			void setH( Distance h );
 
 			const QList<ModelObject*>& objectList() const;
 
-			Variables* variables() const;
+			Variables& variables();
+			const Variables& constVariables() const;
 
 			merge::Merge* merge() const;
 			void setMerge( merge::Merge* merge );
@@ -126,13 +128,13 @@ namespace glabels
 			void addObject( ModelObject* object );
 			void deleteObject( ModelObject* object );
 
-			ModelObject* objectAt( double          scale,
-			                       const Distance& x,
-			                       const Distance& y ) const;
+			ModelObject* objectAt( double   scale,
+			                       Distance x,
+			                       Distance y ) const;
 		
-			Handle* handleAt( double          scale,
-			                  const Distance& x,
-			                  const Distance& y ) const;
+			const Handle& handleAt( double   scale,
+			                        Distance x,
+			                        Distance y ) const;
 
 
 			/////////////////////////////////
@@ -187,7 +189,7 @@ namespace glabels
 			void centerSelection();
 			void centerSelectionHoriz();
 			void centerSelectionVert();
-			void moveSelection( const Distance& dx, const Distance& dy );
+			void moveSelection( Distance dx, Distance dy );
 			void setSelectionFontFamily( const QString& fontFamily );
 			void setSelectionFontSize( double fontSize );
 			void setSelectionFontWeight( QFont::Weight fontWeight );
@@ -196,7 +198,7 @@ namespace glabels
 			void setSelectionTextVAlign( Qt::Alignment textVAlign );
 			void setSelectionTextLineSpacing( double textLineSpacing );
 			void setSelectionTextColorNode( ColorNode textColorNode );
-			void setSelectionLineWidth( const Distance& lineWidth );
+			void setSelectionLineWidth( Distance lineWidth );
 			void setSelectionLineColorNode( ColorNode lineColorNode );
 			void setSelectionFillColorNode( ColorNode fillColorNode );
 
@@ -207,16 +209,20 @@ namespace glabels
 			void copySelection();
 			void cutSelection();
 			bool canPaste();
-			void paste();
-	
+			void paste( Point p );
+			void pasteAsNativeObjects( const QMimeData* mimeData, Point p );
+			void pasteAsUrls( const QMimeData* mimeData, Point p );
+			void pasteAsImage( const QMimeData* mimeData, Point p );
+			void pasteAsText( const QMimeData* mimeData, Point p );
+
 			/////////////////////////////////
 			// Drawing operations
 			/////////////////////////////////
 		public:
-			void draw( QPainter*      painter,
-			           bool           inEditor,
-			           merge::Record* record,
-			           Variables*     variables ) const;
+			void draw( QPainter*            painter,
+			           bool                 inEditor,
+			           const merge::Record& record,
+			           const Variables&     variablesInstance ) const;
 
 		
 			/////////////////////////////////
@@ -242,8 +248,9 @@ namespace glabels
 
 			QList<ModelObject*>       mObjectList;
 
-			Variables*                mVariables;
-			merge::Merge*             mMerge;
+			Variables                 mVariables;
+
+			QSharedPointer<merge::Merge> mMerge;
 		};
 
 	}

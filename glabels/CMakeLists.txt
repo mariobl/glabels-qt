@@ -19,7 +19,6 @@ set (glabels_sources
   FieldButton.cpp
   File.cpp
   Help.cpp
-  Icons.cpp
   LabelEditor.cpp
   MainWindow.cpp
   MergeView.cpp
@@ -27,6 +26,7 @@ set (glabels_sources
   NotebookUtil.cpp
   ObjectEditor.cpp
   PreferencesDialog.cpp
+  PrinterMonitor.cpp
   PrintView.cpp
   PropertiesView.cpp
   Preview.cpp
@@ -60,6 +60,7 @@ set (glabels_qobject_headers
   MergeView.h
   ObjectEditor.h
   PreferencesDialog.h
+  PrinterMonitor.h
   PrintView.h
   PropertiesView.h
   Preview.h
@@ -145,11 +146,11 @@ target_link_libraries (glabels-qt
 #=======================================
 install (TARGETS glabels-qt RUNTIME DESTINATION bin)
 
-install (FILES icons/apps/scalable/glabels.svg DESTINATION share/icons/hicolor/scalable/apps)
-install (FILES icons/apps/16x16/glabels.svg    DESTINATION share/icons/hicolor/16x16/apps)
-install (FILES icons/apps/22x22/glabels.svg    DESTINATION share/icons/hicolor/22x22/apps)
-install (FILES icons/apps/32x32/glabels.svg    DESTINATION share/icons/hicolor/32x32/apps)
-install (FILES icons/apps/48x48/glabels.svg    DESTINATION share/icons/hicolor/48x48/apps)
+install (FILES icons/glabels-flat/scalable/apps/glabels.svg DESTINATION share/icons/hicolor/scalable/apps)
+install (FILES icons/glabels-flat/16x16/apps/glabels.svg    DESTINATION share/icons/hicolor/16x16/apps)
+install (FILES icons/glabels-flat/22x22/apps/glabels.svg    DESTINATION share/icons/hicolor/22x22/apps)
+install (FILES icons/glabels-flat/32x32/apps/glabels.svg    DESTINATION share/icons/hicolor/32x32/apps)
+install (FILES icons/glabels-flat/48x48/apps/glabels.svg    DESTINATION share/icons/hicolor/48x48/apps)
 
 install (FILES icons/mimetypes/scalable/x-glabels-project.svg DESTINATION share/icons/hicolor/scalable/mimetypes)
 install (FILES icons/mimetypes/16x16/x-glabels-project.svg    DESTINATION share/icons/hicolor/16x16/mimetypes)
