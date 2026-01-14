@@ -1,56 +1,89 @@
-/*  TemplatePickerItem.cpp
- *
- *  Copyright (C) 2013  Jim Evins <evins@snaught.com>
- *
- *  This file is part of gLabels-qt.
- *
- *  gLabels-qt is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  gLabels-qt is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
- */
+//  TemplatePickerItem.cpp
+//
+//  Copyright (C) 2013-2026  Jaye Evins <evins@snaught.com>
+//
+//  This file is part of gLabels-qt.
+//
+//  gLabels-qt is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  gLabels-qt is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
+//
 
-#include "TemplatePickerItem.h"
 
-#include "MiniPreviewPixmap.h"
+#include "TemplatePickerItem.hpp"
 
-#include <QHBoxLayout>
+#include "MiniPreviewPixmap.hpp"
+
+#include "model/Settings.hpp"
+
+#include <QDebug>
 #include <QIcon>
-#include <QListWidgetItem>
 
 
 namespace glabels
 {
 
-	///
-	/// Constructor
-	///
-	TemplatePickerItem::TemplatePickerItem( model::Template *tmplate, QListWidget *parent )
-		: QListWidgetItem(parent)
-	{
-		mTmplate = tmplate;
+        ///
+        /// Constructor
+        ///
+        TemplatePickerItem::TemplatePickerItem( const model::Template& tmplate,
+                                                QListView::ViewMode    mode )
+                : QStandardItem()
+        {
+                mTmplate = tmplate;
 
-		setIcon( QIcon( MiniPreviewPixmap( tmplate, SIZE, SIZE ) ) );
-		setText( tmplate->name() );
-		
-		setFlags( Qt::ItemIsSelectable | Qt::ItemIsEnabled );
-	}
+                setIcon( QIcon( MiniPreviewPixmap( tmplate, SIZE, SIZE ) ) );
+                setMode( mode );
+
+                setFlags( Qt::ItemIsSelectable | Qt::ItemIsEnabled );
+        }
 
 
-	///
-	/// Template Property Getter
-	///
-	const model::Template *TemplatePickerItem::tmplate() const
-	{
-		return mTmplate;
-	}
+        ///
+        /// Configure for given View Mode
+        ///
+        void TemplatePickerItem::setMode( QListView::ViewMode mode )
+        {
+                auto frame = mTmplate.frame();
+
+                switch ( mode )
+                {
+
+                case QListView::IconMode:
+                        setText( mTmplate.name() );
+                        break;
+
+                case QListView::ListMode:
+                        setText( "<b>" + mTmplate.name() + "</b><br/>" +
+                                 mTmplate.description() + "<br/>" +
+                                 frame->sizeDescription( model::Settings::units() ) + "<br/>" +
+                                 frame->layoutDescription() );
+                        break;
+
+                default:
+                        qWarning() << "TemplatePickerItem: unknown mode!";
+                        break;
+
+                }
+        }
+
+
+        ///
+        /// Template Property Getter
+        ///
+        model::Template TemplatePickerItem::tmplate() const
+        {
+                return mTmplate;
+        }
+
 
 } // namespace glabels

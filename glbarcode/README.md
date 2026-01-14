@@ -1,1 +1,1 @@
-See https://github.com/jimevins/glbarcode for standalone version.
+See https://github.com/j-evins/glbarcode for standalone version.

@@ -47,8 +47,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'gLabels'
-copyright = '2018, Jim Evins <evins@snaught.com>'
-author = 'Jim Evins'
+copyright = '2020, Jaye Evins <evins@snaught.com>'
+author = 'Jaye Evins'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -140,7 +140,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'gLabels.tex', 'gLabels Documentation',
-     'Jim Evins', 'manual'),
+     'Jaye Evins', 'manual'),
 ]
 
 
@@ -149,8 +149,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('man/glabels-qt', 'glabels-qt', 'create labels and business cards', [author], 1),
-    ('man/glabels-batch-qt', 'glabels-batch-qt', 'batch creation of labels and business cards', [author], 1)
+    ('man/glabels-qt', 'glabels-qt', 'create labels and business cards', [], 1),
+    ('man/glabels-batch-qt', 'glabels-batch-qt', 'print glabels project from command line', [], 1)
 ]
 
 

@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.9)
+cmake_minimum_required (VERSION 3.22)
 
 ###############################################################################
 # gLabels Label Designer Project
@@ -14,10 +14,16 @@ set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/"
 #=======================================
 # Version Information
 #=======================================
+set (ORGANIZATION_NAME "glabels.org")
+set (ORGANIZATION_DOMAIN "glabels.org")
+set (APPLICATION_NAME "glabels-qt")
+set (DESKTOP_FILE_NAME "org.glabels.glabels-qt")
+
 set (WEBSITE  "glabels.org")
-set (BUG_WEBSITE  "https://github.com/jimevins/glabels-qt/issues")
+set (BUG_WEBSITE  "https://github.com/j-evins/glabels-qt/issues")
 
 execute_process(
+  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
   COMMAND git symbolic-ref --short HEAD
   RESULT_VARIABLE BRANCH_VALID
   OUTPUT_VARIABLE BRANCH
@@ -28,6 +34,7 @@ if (NOT ${BRANCH_VALID} STREQUAL "0")
 endif ()
   
 execute_process(
+  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
   COMMAND git rev-list --count ${BRANCH}
   RESULT_VARIABLE COMMIT_COUNT_VALID
   OUTPUT_VARIABLE COMMIT_COUNT
@@ -38,7 +45,8 @@ if (NOT ${COMMIT_COUNT_VALID} STREQUAL "0")
 endif ()
   
 execute_process(
-  COMMAND git log -1 --format=%h
+  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+  COMMAND git show-ref --head --hash --abbrev head
   RESULT_VARIABLE COMMIT_HASH_VALID
   OUTPUT_VARIABLE COMMIT_HASH
   OUTPUT_STRIP_TRAILING_WHITESPACE
@@ -48,7 +56,8 @@ if (NOT ${COMMIT_HASH_VALID} STREQUAL "0")
 endif ()
   
 execute_process(
-  COMMAND git log -1 --format=%cd --date=short
+  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+  COMMAND git rev-list -1 --no-commit-header --format=%cs HEAD
   RESULT_VARIABLE COMMIT_DATE_VALID
   OUTPUT_VARIABLE COMMIT_DATE
   OUTPUT_STRIP_TRAILING_WHITESPACE
@@ -66,7 +75,7 @@ set(VERSION_STRING "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}-${BRANCH}$
 set(LONG_VERSION_STRING "${VERSION_STRING} (${COMMIT_HASH} ${COMMIT_DATE})")
 
 # Auto-generate version file
-configure_file (.version.in VERSION @ONLY)
+configure_file (VERSION.txt.in VERSION.txt @ONLY)
 
 
 #=======================================
@@ -107,12 +116,7 @@ if (MINGW)
    set (CMAKE_PREFIX_PATH ${MINGW_BASE_DIR} )
 endif ()
 
-find_package (Qt5Core 5.4 REQUIRED)
-find_package (Qt5Widgets 5.4 REQUIRED)
-find_package (Qt5PrintSupport 5.4 REQUIRED)
-find_package (Qt5Xml 5.4 REQUIRED)
-find_package (Qt5Svg 5.4 REQUIRED)
-find_package (Qt5LinguistTools)
+find_package (Qt6 6.2 REQUIRED COMPONENTS Concurrent Core Gui Widgets PrintSupport Xml Svg LinguistTools Test)
 
 if (WIN32)
    # Locate Qt directories
@@ -126,9 +130,9 @@ endif ()
 find_package (ZLIB 1.2 QUIET)
 find_package (GnuBarcode 0.98 QUIET)
 find_package (LibQrencode 3.4 QUIET)
-find_package (LibZint 2.6 QUIET)
+find_package (LibZint 2.15 QUIET)
 # Unit testing support
-find_package (Qt5Test 5.4 QUIET)
+find_package (Qt5Test 5.6 QUIET)
 
 
 #=======================================
@@ -137,9 +141,19 @@ find_package (Qt5Test 5.4 QUIET)
 if (${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU")
    #
    # Uncomment to compile everything with aggressively pedantic options
-   # (not recommended -- only for testing -- also not portable)
+   # (not recommended -- only for testing)
    #
-   #add_compile_options("-Wall" "-Werror" "-Wpedantic")
+   #add_compile_options("-Wall" "-Wextra" "-Wpedantic" "-Wno-unused-parameter" "-Werror")
+
+   # Uncomment to always compile with debug symbols
+   add_compile_options("-g")
+endif ()
+if (${CMAKE_CXX_COMPILER_ID} MATCHES "^.*Clang$")  # "Clang", "AppleClang", etc.
+   #
+   # Uncomment to compile everything with aggressively pedantic options
+   # (not recommended -- only for testing)
+   #
+   #add_compile_options("-Wall" "-Wextra" "-Wpedantic" "-Wno-unused-parameter" "-Werror")
 
    # Uncomment to always compile with debug symbols
    add_compile_options("-g")
@@ -149,9 +163,10 @@ endif ()
 #=======================================
 # Unit Testing
 #=======================================
-if (Qt5Test_FOUND)
+if (Qt6Test_FOUND)
   enable_testing ()
 endif ()
+
 
 #=======================================
 # Subdirectories
@@ -173,11 +188,13 @@ add_subdirectory (data)
 message (STATUS "")
 message (STATUS "Project name ............ " ${CMAKE_PROJECT_NAME})
 message (STATUS "Project version ......... " ${LONG_VERSION_STRING})
+message (STATUS "Host system ............. " ${CMAKE_HOST_SYSTEM} " " ${CMAKE_HOST_SYSTEM_PROCESSOR})
+message (STATUS "Target system ........... " ${CMAKE_SYSTEM} " " ${CMAKE_SYSTEM_PROCESSOR})
 message (STATUS "Installation prefix ..... " ${CMAKE_INSTALL_PREFIX})
 message (STATUS "Source code location .... " ${glabels_SOURCE_DIR})
 message (STATUS "CMake version ........... " ${CMAKE_VERSION})
 message (STATUS "C++ Compiler ............ " ${CMAKE_CXX_COMPILER_ID} " " ${CMAKE_CXX_COMPILER} " " ${CMAKE_CXX_COMPILER_VERSION})
-message (STATUS "Qt version .............. " ${Qt5Core_VERSION})
+message (STATUS "Qt version .............. " ${Qt6Core_VERSION})
 
 if (ZLIB_FOUND)
   message (STATUS "zlib (optional).......... " ${ZLIB_VERSION_STRING})
@@ -202,12 +219,6 @@ if (LIBZINT_FOUND)
 else (LIBZINT_FOUND)
   message (STATUS "libzint (optional)....... No.")
 endif (LIBZINT_FOUND)
-
-if (Qt5Test_FOUND)
-  message (STATUS "QtTest (optional)........ " ${Qt5Test_VERSION})
-else (Qt5Test_FOUND)
-  message (STATUS "QtTest (optional)........ No.")
-endif (Qt5Test_FOUND)
 
 if (MSVC)
    message (STATUS "MSVC Qt location ........ " ${QT_BASE_DIR})

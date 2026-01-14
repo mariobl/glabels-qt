@@ -10,12 +10,12 @@ set (glabels-batch_sources
 #=====================================
 # Target
 #=====================================
-add_executable (glabels-batch-qt WIN32
+add_executable (glabels-batch-qt
   ${glabels-batch_sources}
 )
 
 target_compile_features (glabels-batch-qt
-  PUBLIC cxx_std_11
+  PUBLIC cxx_std_20
 )
 
 target_link_libraries (glabels-batch-qt

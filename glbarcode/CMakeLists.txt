@@ -34,7 +34,7 @@ add_library (glbarcode STATIC
 )
 
 target_compile_features (glbarcode
-  PUBLIC cxx_std_11
+  PUBLIC cxx_std_20
 )
 
 target_include_directories (glbarcode
@@ -42,5 +42,5 @@ target_include_directories (glbarcode
 )
 
 target_link_libraries (glbarcode
-  Qt5::Widgets
+  Qt6::Widgets
 )

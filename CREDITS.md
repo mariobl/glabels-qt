@@ -1,7 +1,7 @@
 gLabels Author
 ==============
 
-[Jim Evins <evins@snaught.com>](https://github.com/jimevins)
+[Jaye Evins <evins@snaught.com>](https://github.com/j-evins)
 
 
 Acknowledgments
@@ -9,11 +9,14 @@ Acknowledgments
 
 gLabels includes contributions from
 
-* [Chris Morgan](https://github.com/chmorgan)
-* [hochwasser](https://github.com/hochwasser)
 * [Mario Blättermann](https://github.com/mariobl)
 * [probonopd](https://github.com/probonopd) - travis-ci setup, appImage
+* [gitlost](https://github.com/gitlost)
 * [Yuri Chornoivan](https://github.com/yurchor)
+* [nblock](https://github.com/nblock)
+* [hochwasser](https://github.com/hochwasser)
+* [Chris Morgan](https://github.com/chmorgan)
+* [Brian K. White](https://github.com/aljex)
 
 
 Translations
