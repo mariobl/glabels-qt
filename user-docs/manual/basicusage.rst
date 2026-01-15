@@ -1,3 +1,5 @@
+.. _basicusage:
+
 Basic Usage
 ***********
 

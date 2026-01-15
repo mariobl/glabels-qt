@@ -1,3 +1,5 @@
+.. _reference:
+
 Reference
 *********
 
@@ -7,3 +9,4 @@ Reference
    ../man/index
    subst_spec
    license
+   spreadsheet_export

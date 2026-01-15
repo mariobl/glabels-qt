@@ -1,3 +1,5 @@
+.. _tutorials:
+
 Tutorials
 *********
 
@@ -5,4 +7,5 @@ Tutorials
    :maxdepth: 2
    
    simple_project
-   mailing_list_project
+   manipulating_objects
+   merge_examples
