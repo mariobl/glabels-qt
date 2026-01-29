@@ -21,10 +21,10 @@ dialog, select the options that you want. Click :guilabel:`OK` and then
 Calligra Sheets
 ---------------
 
-Choose :menuselection:`File --> Export…` or :menuselection:`File --> Save As…`.
+Choose :menuselection:`&File --> E&xport…` or :menuselection:`&File --> Save &As…`.
 The file saver dialog shows the current filename, currently probably with an
-:file:`.ods` extension (the default in :application:`Calligra Sheets`). Open the
-:guilabel:`File type` drop-down list and choose :guilabel:`CSV document`. The
+:file:`.ods` extension (the default in :program:`Calligra Sheets`). Open the
+:guilabel:`&File type` drop-down list and choose :guilabel:`CSV document`. The
 filename extension changes automatically to :file:`.csv`. Then click on
 :guilabel:`Save`.
 
@@ -41,8 +41,20 @@ the sheet (should usually be irrelevant for our purposes).
 Gnumeric
 --------
 
-Currently (2026-01), :program:`Gnumeric` seems to have no options to export
-:file:`.csv` files. Please correct me if that is indeed possible.
+:program:`Gnumeric` doesn't offer any options to export :file:`.csv` files
+directly from the user interface. But it comes with the command line tool
+:command:`ssconvert`, which can convert to various formats, including
+:file:`.csv`. For example, to convert a native :program:`Gnumeric` XML file:
+
+.. code-block::
+
+   $ ssconvert -T Gnumeric_stf:stf_csv infile.gnumeric outfile.csv
+
+To see the accepted input file formats, run:
+
+.. code-block::
+
+   $ ssconvert --list-exporters
 
 ---------------------------------
 Mail Clients and PIM Applications
