@@ -9,14 +9,6 @@
   <project_license>GPL-3.0+</project_license>
   <name>gLabels</name>
   <summary>Create labels and business cards</summary>
-  <summary xml:lang="de">Entwurf von Etiketten und Visitenkarten</summary>
-  <summary xml:lang="es">Crear etiquetas y tarjetas de visita</summary>
-  <summary xml:lang="fr">Créer des étiquettes et des cartes de visite</summary>
-  <summary xml:lang="it">Crea etichette e biglietti da visita</summary>
-  <summary xml:lang="pl">Twórz etykiety i wizytówki</summary>
-  <summary xml:lang="pt">Crie etiquetas e cartões de visita</summary>
-  <summary xml:lang="pt_BR">Crie etiquetas e cartões de visita</summary>
-  <summary xml:lang="uk">Створюйте етикетки та візитки</summary>
   <description>
     <p>gLabels is a program for creating labels, business cards and media covers.
     It is designed to work with various laser/ink-jet peel-off label and business
